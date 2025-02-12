@@ -8,11 +8,12 @@ const client = new net.Socket();
 client.connect(SERVER_PORT, SERVER_IP, () => {
     console.log('🚀 Conectado ao servidor de notificações!');
 
-    const targetEmail = 'liviantorres63@gmail.com'; 
-    const status = '0'; 
-    
+    const targetEmail = 'gustavocraft321@gmail.com'; 
+    const status = '2'; 
     const message = `${targetEmail} ${status}`;
+
     client.write(message);
+
     console.log(`📨 Enviando comando: ${message}`);
 });
 

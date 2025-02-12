@@ -30,10 +30,26 @@ const getEmailMessage = (status) => {
                 subject: '❌ Pedido Cancelado',
                 text: `Olá! 😕\n\nInfelizmente, seu pedido foi *CANCELADO*. ❌\nSe isso foi um engano ou se precisar de ajuda, entre em contato com a nossa equipe de suporte. 📞💬\n\nEsperamos poder atendê-lo em breve!\n\nAtenciosamente,\n📌 Equipe de Atendimento`
             };
+        case '3':
+            return {
+                subject: '👨‍🍳 Pedido em Preparação!',
+                text: `Oi! Seu pedido está *EM PREPARAÇÃO*! 👨‍🍳🔥\n\nNossa equipe já está cuidando de tudo com carinho para garantir que seu pedido chegue perfeito! 🛠️📦\n\nAssim que estiver pronto para envio, avisaremos você. Fique de olho no seu e-mail! 📩\n\nObrigado pela paciência e pela preferência! 💙`
+            };
+        case '4':
+            return {
+                subject: '💳 Pagamento Efetuado com Sucesso!',
+                text: `🎉 Pagamento aprovado! Seu pedido está sendo processado. ✅\n\nAgora é só aguardar enquanto preparamos tudo para envio! 📦🚀\n\nSe tiver alguma dúvida, estamos à disposição! Obrigado pela confiança. 💙`
+            };
+        case '5':
+            return {
+                subject: '⚠️ Pagamento Cancelado!',
+                text: `Olá! 😕\n\nDetectamos que o *pagamento do seu pedido foi cancelado*. ❌\nIsso pode ter ocorrido por falta de saldo, erro no cartão ou cancelamento manual.\n\nSe precisar de ajuda ou quiser tentar novamente, entre em contato conosco! 📞💬\n\nAtenciosamente,\n📌 Equipe de Atendimento`
+            };
         default:
             return null;
     }
 };
+
 
 const sendEmail = async (to, subject, text) => {
     try {
@@ -52,7 +68,7 @@ const sendEmail = async (to, subject, text) => {
 
 
 const SERVER_PORT = 12345;
-const SERVER_IP = 'localhost';
+const SERVER_IP = '0.0.0.0';
 
 const server = net.createServer((socket) => {
     console.log(`🔗 Nova conexão recebida!`);
